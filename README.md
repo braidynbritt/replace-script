@@ -3,6 +3,6 @@ The replace script should look recursively through the given path (that is, in a
 
 Make sure to make the files executable if needed.
 #Syntax
-run-test: ./run-test [teardown \ setup]
+run-test: ./run-test [teardown | setup]
 
 replace: ./replace [PATH OLDPATTERN NEWPATTERN] 
