@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [[ $# != 1 ]]; then
+	echo "Usage: ./run-test (setup | teardown)"
+	exit
+fi
+
+if [[ "$1" == "setup" ]]; then
+	mkdir -p test/edu/bvu/cs
+	cd test/edu/bvu/cs && touch DevOps.java && touch DevOpsMain.java
+	cat > DevOps.java <<STOP
+	public class DevOps {
+		public DevOps() {
+		}
+	}
+STOP
+
+	cat > DevOpsMain.java <<STOP
+	public class DevOpsMain {
+    	public static void main(String[] args) {
+        	DevOps dev = new DevOps();
+    	}
+	}
+STOP
+
+elif [[ "$1" == "teardown" ]]; then
+ rm -r test
+ 
+else
+	echo "Usage: ./run-test (setup | teardown)"
+	exit
+fi
