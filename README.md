@@ -3,6 +3,9 @@ The replace script should look recursively through the given path (that is, in a
 
 Make sure to make the files executable if needed.
 
+# run-test
+The run-test script creates or deletes a series of directories then two java files to be use the replace-script file on. 
+
 # Syntax
 run-test: ./run-test [teardown | setup]
 
