@@ -15,8 +15,10 @@ if Path.exists(Path(path)):
 	for i in Path.rglob(Path(path), oldPattern+'*'):
 		fullPath = i.parent.absolute()
 		rest = str(i).split(oldPattern, 1)[1]
-		newPath = Path(newPattern + rest)
-		i.rename(i.parent.absolute() / newPath)
+		newPath = i.parent.absolute() / Path(newPattern + rest)
+		i.rename(newPath)
+		data = (newPath.read_text()).replace(oldPattern, newPattern)
+		newPath.write_text(data)
 else:
 	print("Given path does not exist")
 	exit()
